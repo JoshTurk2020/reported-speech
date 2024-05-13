@@ -18,6 +18,9 @@
   </style>
 </head>
 <body>
+  <audio id="backgroundMusic" src="path/to/city.mp3" loop></audio>
+  <audio id="clickSound" src="path/to/laugh.mp3"></audio>
+
   <h1>Reported Speech Game</h1>
   
   <p>One day, Jerry and George were having lunch at Monk's Cafe. <span class="dialogue" onclick="toggleReported(0)">Jerry said, "I have a new girlfriend, but she has a weird habit."</span></p>
@@ -59,7 +62,16 @@
       var reportedItems = document.getElementsByClassName("reported");
       var reportedItem = reportedItems[index];
       reportedItem.style.display = reportedItem.style.display === "block" ? "none" : "block";
+      
+      var clickSound = document.getElementById("clickSound");
+      clickSound.currentTime = 0;
+      clickSound.play();
     }
+
+    window.onload = function() {
+      var backgroundMusic = document.getElementById("backgroundMusic");
+      backgroundMusic.play();
+    };
   </script>
 </body>
 </html>
