@@ -15,15 +15,53 @@
       background-color: #f0f0f0;
       display: none;
     }
+    .welcome-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('seinfeld-background.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: pointer;
+    }
+    .welcome-message {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .welcome-message h2 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .welcome-message p {
+      font-size: 24px;
+      color: #666;
+    }
   </style>
 </head>
 <body>
   <audio id="backgroundMusic" src="city.mp3" loop></audio>
   <audio id="clickSound" src="laugh.mp3"></audio>
 
-  <h1>Reported Speech Game</h1>
-  
-  <p>One day, Jerry and George were having lunch at Monk's Cafe. <span class="dialogue" onclick="toggleReported(0)">Jerry said, "I have a new girlfriend, but she has a weird habit."</span></p>
+  <div class="welcome-screen" onclick="startGame()">
+    <div class="welcome-message">
+      <h2>Welcome to the Seinfeld Reported Speech Game</h2>
+      <p>Click to enter!</p>
+    </div>
+  </div>
+
+  <div id="gameContent" style="display: none;">
+    <h1>Reported Speech Game</h1>
+    <p>One day, Jerry and George were having lunch at Monk's Cafe. <span class="dialogue" onclick="toggleReported(0)">Jerry said, "I have a new girlfriend, but she has a weird habit."</span></p>
   <div class="reported">Jerry said that he had a new girlfriend, but she had a weird habit.</div>
   
   <p><span class="dialogue" onclick="toggleReported(1)">George replied, "What's the habit? It can't be worse than my last girlfriend who collected toenail clippings."</span></p>
@@ -35,29 +73,41 @@
   <p><span class="dialogue" onclick="toggleReported(3)">George laughed. "I dated a girl who spoke Pig Latin. It got annoying real fast."</span></p>
   <div class="reported">George laughed and said he dated a girl who spoke Pig Latin, and it got annoying real fast.</div>
 
-  <p>Later, Jerry introduced his girlfriend Meryl to George. <span class="dialogue" onclick="toggleReported(4)">Meryl greeted George, "Yo yo yiggity yo, nice to meetcha!"</span></p>
+  <p>Later, Jerry introduced his girlfriend Graziela to George. <span class="dialogue" onclick="toggleReported(4)">Meryl greeted George, "Yo yo yiggity yo, nice to meetcha!"</span></p>
   <div class="reported">Meryl greeted George by saying "Yo yo yiggity yo, nice to meetcha!"</div>
 
   <p>George looked confused. <span class="dialogue" onclick="toggleReported(5)">He asked Jerry, "Is she having a stroke?"</span></p>
   <div class="reported">George asked Jerry if Meryl was having a stroke.</div>
 
-  <p><span class="dialogue" onclick="toggleReported(6)">Meryl explained, "That's just how I like to conversate. I'm quirky like that!"</span></p>
+  <p><span class="dialogue" onclick="toggleReported(6)">Graziela explained, "That's just how I like to conversate. I'm quirky like that!"</span></p>
   <div class="reported">Meryl explained that that's just how she liked to conversate, and she was quirky like that.</div>
 
   <p><span class="dialogue" onclick="toggleReported(7)">Jerry said, "See what I mean, George? It's nonstop with the nonsense words." </span></p>
   <div class="reported">Jerry said to George, "See what I mean?" and that it was nonstop with the nonsense words.</div>
 
-  <p><span class="dialogue" onclick="toggleReported(8)">George suggested to Meryl, "Maybe you should read a dictionary. Learn some real words."</span></p>
-  <div class="reported">George suggested to Meryl that maybe she should read a dictionary and learn some real words.</div>
+  <p><span class="dialogue" onclick="toggleReported(8)">George suggested to Graziela, "Maybe you should read a dictionary. Learn some real words."</span></p>
+  <div class="reported">George suggested to Graziela that maybe she should read a dictionary and learn some real words.</div>
 
-  <p><span class="dialogue" onclick="toggleReported(9)">Meryl got offended. "Rude much? I'll words how I wanna words, mmkay?"</span>
-  She stormed off in a huff.</p>
-  <div class="reported">Meryl got offended and said "Rude much?" She said she would words how she wanted to words.</div>
+  <p><span class="dialogue" onclick="toggleReported(9)">Graziela joked back, "You've been single your whole life, haven't you?"</span>
+  She stormed off in anger.</p>
+  <div class="reported">Meryl joked back, asking George whether he had been single his whole life.</div>
 
-  <p><span class="dialogue" onclick="toggleReported(10)">Jerry shook his head. "Another relationship ruined by wordplay. Story of my life."</span></p>
-  <div class="reported">Jerry shook his head and said it was another relationship ruined by wordplay, and the story of his life.</div>
+  <p><span class="dialogue" onclick="toggleReported(10)">Jerry shook his head. "Well, all this joking is making me hungry. Want to order a pizza?"</span></p>
+  <div class="reported">Jerry shook his head and said that all that joking was making him hungry and asked if they wanted to order a pizza.</div>
+    
+  </div>
 
   <script>
+    function startGame() {
+      var welcomeScreen = document.querySelector('.welcome-screen');
+      var gameContent = document.getElementById('gameContent');
+      var backgroundMusic = document.getElementById('backgroundMusic');
+
+      welcomeScreen.style.display = 'none';
+      gameContent.style.display = 'block';
+      backgroundMusic.play();
+    }
+
     function toggleReported(index) {
       var reportedItems = document.getElementsByClassName("reported");
       var reportedItem = reportedItems[index];
@@ -67,11 +117,6 @@
       clickSound.currentTime = 0;
       clickSound.play();
     }
-
-    window.onload = function() {
-      var backgroundMusic = document.getElementById("backgroundMusic");
-      backgroundMusic.play();
-    };
   </script>
 </body>
 </html>
