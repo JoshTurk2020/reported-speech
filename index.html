@@ -21,46 +21,43 @@
   <h1>Reported Speech Game</h1>
   
   <p>One day, Jerry and George were having lunch at Monk's Cafe. <span class="dialogue" onclick="toggleReported(0)">Jerry said, "I have a new girlfriend, but she has a weird habit."</span></p>
+  <div class="reported">Jerry said that he had a new girlfriend, but she had a weird habit.</div>
   
   <p><span class="dialogue" onclick="toggleReported(1)">George replied, "What's the habit? It can't be worse than my last girlfriend who collected toenail clippings."</span></p>
+  <div class="reported">George replied by asking what the habit was, and said it couldn't be worse than his last girlfriend who collected toenail clippings.</div>
   
   <p>Jerry made a disgusted face. <span class="dialogue" onclick="toggleReported(2)"> "No, nothing that gross," Jerry said. "She just uses a lot of made-up words and catchphrases. It's like she speaks her own language sometimes."</span></p>
+  <div class="reported">Jerry said it was nothing that gross. He explained that she just used a lot of made-up words and catchphrases, and it was like she spoke her own language sometimes.</div>
    
   <p><span class="dialogue" onclick="toggleReported(3)">George laughed. "I dated a girl who spoke Pig Latin. It got annoying real fast."</span></p>
+  <div class="reported">George laughed and said he dated a girl who spoke Pig Latin, and it got annoying real fast.</div>
 
   <p>Later, Jerry introduced his girlfriend Meryl to George. <span class="dialogue" onclick="toggleReported(4)">Meryl greeted George, "Yo yo yiggity yo, nice to meetcha!"</span></p>
+  <div class="reported">Meryl greeted George by saying "Yo yo yiggity yo, nice to meetcha!"</div>
 
   <p>George looked confused. <span class="dialogue" onclick="toggleReported(5)">He asked Jerry, "Is she having a stroke?"</span></p>
+  <div class="reported">George asked Jerry if Meryl was having a stroke.</div>
 
   <p><span class="dialogue" onclick="toggleReported(6)">Meryl explained, "That's just how I like to conversate. I'm quirky like that!"</span></p>
+  <div class="reported">Meryl explained that that's just how she liked to conversate, and she was quirky like that.</div>
 
   <p><span class="dialogue" onclick="toggleReported(7)">Jerry said, "See what I mean, George? It's nonstop with the nonsense words." </span></p>
+  <div class="reported">Jerry said to George, "See what I mean?" and that it was nonstop with the nonsense words.</div>
 
   <p><span class="dialogue" onclick="toggleReported(8)">George suggested to Meryl, "Maybe you should read a dictionary. Learn some real words."</span></p>
+  <div class="reported">George suggested to Meryl that maybe she should read a dictionary and learn some real words.</div>
 
   <p><span class="dialogue" onclick="toggleReported(9)">Meryl got offended. "Rude much? I'll words how I wanna words, mmkay?"</span>
   She stormed off in a huff.</p>
+  <div class="reported">Meryl got offended and said "Rude much?" She said she would words how she wanted to words.</div>
 
   <p><span class="dialogue" onclick="toggleReported(10)">Jerry shook his head. "Another relationship ruined by wordplay. Story of my life."</span></p>
-
-  <div id="reportedList">
-    <div class="reported">Jerry said that he had a new girlfriend, but she had a weird habit.</div>
-    <div class="reported">George replied by asking what the habit was, and said it couldn't be worse than his last girlfriend who collected toenail clippings.</div>  
-    <div class="reported">Jerry said it was nothing that gross. He explained that she just used a lot of made-up words and catchphrases, and it was like she spoke her own language sometimes.</div>
-    <div class="reported">George laughed and said he dated a girl who spoke Pig Latin, and it got annoying real fast.</div>
-    <div class="reported">Meryl greeted George by saying "Yo yo yiggity yo, nice to meetcha!"</div>
-    <div class="reported">George asked Jerry if Meryl was having a stroke.</div>
-    <div class="reported">Meryl explained that that's just how she liked to conversate, and she was quirky like that.</div>
-    <div class="reported">Jerry said to George, "See what I mean?" and that it was nonstop with the nonsense words.</div>
-    <div class="reported">George suggested to Meryl that maybe she should read a dictionary and learn some real words.</div>
-    <div class="reported">Meryl got offended and said "Rude much?" She said she would words how she wanted to words.</div>
-    <div class="reported">Jerry shook his head and said it was another relationship ruined by wordplay, and the story of his life.</div>
-  </div>
+  <div class="reported">Jerry shook his head and said it was another relationship ruined by wordplay, and the story of his life.</div>
 
   <script>
     function toggleReported(index) {
-      var reportedList = document.getElementById("reportedList");
-      var reportedItem = reportedList.children[index];
+      var reportedItems = document.getElementsByClassName("reported");
+      var reportedItem = reportedItems[index];
       reportedItem.style.display = reportedItem.style.display === "block" ? "none" : "block";
     }
   </script>
